@@ -1,3 +1,4 @@
+import 'package:example/autocomplete_location.dart';
 import 'package:example/custom_button.dart';
 import 'package:example/place_autocomplete.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +59,17 @@ class Home extends StatelessWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) {
                     return PlaceAutocomplete();
+                  }),
+                );
+              },
+            ),
+            SizedBox(height: 20),
+            CustomButton(
+              title: 'Place Autocomplete + Location',
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) {
+                    return AutocompleteLocation();
                   }),
                 );
               },

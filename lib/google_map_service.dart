@@ -48,4 +48,16 @@ class GoogleMapServices {
 
     return placeDetail;
   }
+
+  static Future<String> getAddrFromLocation(double lat, double lng) async {
+    final String baseUrl = 'https://maps.googleapis.com/maps/api/geocode/json';
+    String url = '$baseUrl?latlng=$lat,$lng&key=$API_KEY&language=ko';
+
+    final http.Response response = await http.get(url);
+    final responseData = json.decode(response.body);
+    final formattedAddr = responseData['results'][0]['formatted_address'];
+    print(formattedAddr);
+
+    return formattedAddr;
+  }
 }
